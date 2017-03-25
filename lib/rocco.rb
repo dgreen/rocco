@@ -77,7 +77,7 @@ end
 #   rendered template.  _Defaults to `http://jashkenas.github.com/docco/resources/docco.css`
 #   (the original docco stylesheet)
 class Rocco
-  VERSION = '0.8.2'
+  VERSION = '0.9.1'
 
   def initialize(filename, sources=[], options={})
     @file       = filename
@@ -149,6 +149,9 @@ class Rocco
   # Generate HTML output for the entire document.
   require 'rocco/layout'
   def to_html
+    puts "options[:stylesheet] = #{@options[:stylesheet]}"
+    puts "options[:syntax_stylesheet] = #{@options[:syntax_stylesheet]}"
+    puts "options[:template_file] = #{@options[:template_file]}"
     Rocco::Layout.new(
       self,
       @options[:stylesheet],
